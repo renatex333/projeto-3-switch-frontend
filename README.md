@@ -8,7 +8,7 @@
 
 Link para API utilizada: https://rapidapi.com/alexaustin9816-BYtbNAGYg_K/api/gaming-news/
 
-Link para o Backend: 
+Link para o Backend: https://github.com/insper-tecnologias-web/projeto-3-switch
 
 Link do Heroku: COLOCAR QUANDO TIVER #TODO
 
