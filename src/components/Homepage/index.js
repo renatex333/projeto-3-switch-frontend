@@ -1,12 +1,15 @@
 import React from "react";
+import FriendsList from "../FriendsList";
 import "./index.css";
 
 export default function Homepage(props) {
 
+  const props_exemplo = {"data": ["Diogo", "Jorás", "Matheus", "Renatex"]};
+
+
   return (
-    <div className="">
-      <h3>Tá aparecendo os treco aqui</h3>
-        
+    <div className="homepage">
+      <FriendsList dados={props_exemplo}></FriendsList>        
     </div>
   );
 }
