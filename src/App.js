@@ -4,6 +4,7 @@ import {
   Route,
   Link
 } from 'react-router-dom';
+import React, { useState } from 'react';
 import Homepage from "./components/Homepage";
 import Login from "./components/Login";
 import Credits from "./components/Credits";
@@ -17,6 +18,12 @@ import './App.css';
 // https://colorhunt.co/palette/ff5c58fe8f8ffcd2d1ffedd3
 
 function App() {
+  // const [token, setToken] = useState();
+
+  // if(!token) {
+  //   return <Login setToken={setToken} />
+  // }
+
 
 
   return (
