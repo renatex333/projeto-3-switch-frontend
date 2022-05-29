@@ -8,18 +8,18 @@ export default function Login(props) {
   return (
     <main className="page">
       <div className="login-block">
-      <h1>Please Login</h1>
-      <form>
+      <h1 className="login-text">Please Login</h1>
+      <form className="form-block">
         <label>
-          <p>Username</p>
+          <p className="form-text">Username</p>
           <input type="text" />
         </label>
         <label>
-          <p>Password</p>
+          <p className="form-text">Password</p>
           <input type="password" />
         </label>
         <div>
-          <button type="submit">Submit</button>
+          <button className="btn" type="submit">Login</button>
         </div>
       </form>
       </div>
