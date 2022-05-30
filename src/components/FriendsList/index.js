@@ -20,25 +20,27 @@ export default function FriendsList(props) {
 
   return (
     <div className="friends">
-        <h3 className="list-title">Lista de Amigos</h3>
-        <form className="friend-list-form" onSubmit={addFriend}>
-          <input 
-            className="friend-name" 
-            type={"text"} 
-            name="name-input" 
-            placeholder="Nome do amigo" 
-            onChange={modifiedName} 
-            value={friendName}
-          /> 
-
-        </form>
-        <div className="list-content">
-          <ul>
-              {props.dados.data.map((s) => (
-              <li>{s}</li>
-              ))}
-          </ul>
+        <div className="friend-list-header">
+          <h1 className="list-title">Lista de Amigos</h1>
+          <form className="friend-list-form" onSubmit={addFriend}>
+            <input 
+              className="friend-name-input" 
+              type={"text"} 
+              name="name-input" 
+              placeholder="Nome do amigo" 
+              onChange={modifiedName} 
+              value={friendName}
+            />
+            <button className="add-friend-btn" type="submit">
+              <img className="plus-icon" src="/plus-solid.png" alt="Plus Icon" />
+            </button>
+          </form>
         </div>
+        <ul className="list-content">
+            {props.dados.data.map((s) => (
+            <li className="friend-li">{s}</li>
+            ))}
+        </ul>
     </div>
   );
 }

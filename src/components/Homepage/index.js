@@ -5,7 +5,7 @@ import "./index.css";
 
 export default function Homepage(props) {
 
-  const props_exemplo = {"data": ["Diogo", "Jorás", "Matheus", "Renatex"]};
+  const props_exemplo = {"data": ["Diogo", "Jorás", "Matheus", "Renatex", "Eduardo", "Ricardo", "Paulo", "Pedro", "Mauro", "Lorena", "Ana", "Joaquina"]};
   const news_exemplo = [{
     "title":"Xbox is working on a small device for playing games over the internet",
     "url":"https://www.independent.co.uk/tech/xbox-microsoft-keystone-streaming-cloud-gaming-console-b2089088.html",

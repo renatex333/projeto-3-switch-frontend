@@ -2,8 +2,8 @@
     background: #fff;
     border-radius: 0.3rem;
     margin: 2rem;
-    width: 50rem;
-    height: 65vh;
+    width: 55rem;
+    height: 30rem;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -21,7 +21,7 @@
 .news-card {
     background: #fff;
     border-radius: 0.3rem;
-    width: 80vh;
+    width: 35rem;
     position: relative;
     display: flex;
     flex-direction: column;
