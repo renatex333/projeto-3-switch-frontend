@@ -5,6 +5,8 @@
 }
 
 .App-header {
+  position: fixed;
+  width: 100%;
   background-color: #FF2442;
   height: 6rem;
   display: flex;
@@ -20,4 +22,8 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.main {
+  padding-top: 6rem;
 }
