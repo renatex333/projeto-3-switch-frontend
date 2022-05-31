@@ -21,13 +21,13 @@ export default function FriendsList(props) {
   return (
     <div className="friends">
         <div className="friend-list-header">
-          <h1 className="list-title">Lista de Amigos</h1>
+          <h1 className="list-title">Friends List</h1>
           <form className="friend-list-form" onSubmit={addFriend}>
             <input 
               className="friend-name-input" 
               type={"text"} 
               name="name-input" 
-              placeholder="Nome do amigo" 
+              placeholder="Add Friend by ID" 
               onChange={modifiedName} 
               value={friendName}
             />
