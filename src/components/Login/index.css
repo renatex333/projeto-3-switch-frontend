@@ -64,3 +64,11 @@
     box-shadow: 0 0.2rem rgb(150, 0, 0);
     transform: translateY(4px);
 }
+
+h5 {
+    font-size: 0.8rem;
+}
+
+.create-account-href {
+    color: #3DB2FF;
+}

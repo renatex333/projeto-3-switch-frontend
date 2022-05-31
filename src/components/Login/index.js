@@ -1,6 +1,6 @@
 import React from "react";
 import "./index.css";
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 export default function Login(props) {
 
@@ -11,15 +11,15 @@ export default function Login(props) {
       <h1 className="login-text"></h1>
       <form className="form-block">
         <label>
-          <p className="form-text">Please Login</p>
           <input type="text" placeholder="Username"/>
+          <p></p>
         </label>
         <label>
-          <p className="form-text" ></p>
           <input type="password" placeholder="Password"/>
+          <p></p>
         </label>
           <button className="btn" type="submit">Login</button>
-          <button className="btn" type="submit">Create Account</button>
+          <h5>Don't have an account yet? <a className="create-account-href" href="/createaccount">Create an account now for free!</a></h5>
       </form>
       </div>
     </main>
