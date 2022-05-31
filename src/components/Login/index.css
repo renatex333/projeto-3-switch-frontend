@@ -57,10 +57,25 @@
     font-weight: 600;
     }
 
-.btn:hover {background-color: #a8182c}
+.btn:hover {
+    background-color: #a8182c;
+    cursor: pointer;
+}
 
 .btn:active {
     background-color: #FF2442;
     box-shadow: 0 0.2rem rgb(150, 0, 0);
     transform: translateY(4px);
+}
+
+input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    background-color: #48484800;
+  }
+
+input:focus {
+border: 3px solid #555;
 }
