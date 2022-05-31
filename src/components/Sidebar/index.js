@@ -19,8 +19,8 @@ export default function Sidebar(props) {
       <a className="menu-item" href="/login">
         Login
       </a>
-      <a className="menu-item" href="/creditos">
-        Créditos
+      <a className="menu-item" href="/credits">
+        Credits
       </a>
     </Menu>
   );
