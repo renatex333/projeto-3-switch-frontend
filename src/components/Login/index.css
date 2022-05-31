@@ -68,6 +68,15 @@
     transform: translateY(4px);
 }
 
+
+h5 {
+    font-size: 0.8rem;
+}
+
+.create-account-href {
+    color: #3DB2FF;
+}
+
 input {
     width: 100%;
     padding: 12px 20px;
@@ -75,15 +84,7 @@ input {
     box-sizing: border-box;
     background-color: #48484800;
   }
-
+  
 input:focus {
 border: 3px solid #555;
-=======
-h5 {
-    font-size: 0.8rem;
-}
-
-.create-account-href {
-    color: #3DB2FF;
-
 }
