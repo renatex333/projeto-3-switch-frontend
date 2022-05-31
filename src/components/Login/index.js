@@ -7,7 +7,7 @@ export default function Login(props) {
   return (
     <main className="page">
       <div className="login-block">
-      <h1 className="login-text"></h1>
+      <h1 className="login-text">Switch Account</h1>
       <form className="form-block">
         <label>
           <input type="text" placeholder="Username"/>

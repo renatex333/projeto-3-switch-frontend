@@ -38,7 +38,7 @@ export default function FriendsList(props) {
         </div>
         <ul className="list-content">
             {props.dados.data.map((s) => (
-            <li className="friend-li">{s}</li>
+            <li key={s} className="friend-li">{s}</li>
             ))}
         </ul>
     </div>
