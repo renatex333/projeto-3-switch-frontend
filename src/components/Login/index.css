@@ -57,7 +57,10 @@
     font-weight: 600;
     }
 
-.btn:hover {background-color: #a8182c}
+.btn:hover {
+    background-color: #a8182c;
+    cursor: pointer;
+}
 
 .btn:active {
     background-color: #FF2442;
@@ -65,10 +68,22 @@
     transform: translateY(4px);
 }
 
+input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    background-color: #48484800;
+  }
+
+input:focus {
+border: 3px solid #555;
+=======
 h5 {
     font-size: 0.8rem;
 }
 
 .create-account-href {
     color: #3DB2FF;
+
 }
