@@ -31,7 +31,7 @@ export default function News(props) {
   return (
     <div className="news-block">
       <h1 className="news">News</h1>
-      <div>
+      <div className="news-list">
         {props.dados.map((dados) => (
           <div className="news-card">
             <a className = "news-title a" href={dados.url} target="_blank" rel="noreferrer noopener">{dados.title}</a>
