@@ -5,12 +5,10 @@ export default function NewsCard(props) {
     const title = props.title
     const url = props.url
     const source = props.source
-    const key = props.key
   return (
           <div className="news-card" >
             <a className = "news-title a" href={url} target="_blank" rel="noreferrer noopener">{title}</a>
             <p className="news-source">Source: {source}</p>
-            <p>{key}</p>
           </div>
   );
 }
