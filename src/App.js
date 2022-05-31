@@ -9,6 +9,7 @@ import Homepage from "./components/Homepage";
 import Login from "./components/Login";
 import Credits from "./components/Credits";
 import Sidebar from './components/Sidebar';
+import CreateAccount from './components/CreateAccount';
 import './App.css';
 
 
@@ -33,12 +34,13 @@ function App() {
       </header>
       {/* Exemplo de uso das Routes https://www.geeksforgeeks.org/reactjs-router/#:~:text=React%20Router%20is%20a%20standard,how%20the%20React%20Router%20works. */}
       <Sidebar pageWrapId={'page-wrap'} outerContainerId={'outer-container'} />
-      <div id="page-wrap">
+      <div className="main" id="page-wrap">
         <Router>
           <Routes>
             <Route exact path='/' element={<Homepage/>}></Route>
             <Route exact path='/login' element={<Login/>}></Route>
-            <Route exact path='/creditos' element={<Credits/>}></Route>
+            <Route exact path='/credits' element={<Credits/>}></Route>
+            <Route exact path='/createaccount' element={<CreateAccount/>}></Route>
           </Routes>
         </Router>
       </div>
