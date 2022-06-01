@@ -1,5 +1,5 @@
 import React from "react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./index.css";
 // import PropTypes from 'prop-types';
 
@@ -24,7 +24,6 @@ export default function CreateAccount(props) {
       <form className="form-block">
         <label>
           <input type="text" placeholder="Username"/>
-          <p></p>
         </label>
         <label>
           <input 
@@ -34,7 +33,6 @@ export default function CreateAccount(props) {
             onChange={modifiedPassword}
             value={password}
           />
-          <p></p>
         </label>
         <label>
           <input 
@@ -44,20 +42,19 @@ export default function CreateAccount(props) {
             onChange={modifiedConfirmPassword}
             value={confirmPassword}  
           />
-          <p></p>
         </label>
         {
-          password == "" ? (
+          password === "" ? (
             console.log()
           ) : (
-            password != confirmPassword ? (
-            <h5>Passwords don't match!</h5>
+            password !== confirmPassword ? (
+            <h5 className="password-message">Passwords don't match!</h5>
             ) : (
-            <h5>Passwords match!</h5>
+            <h5 className="password-message">Passwords match!</h5>
             )
           )
         }
-        <button className="btn" type="submit" disabled={password != confirmPassword}>Create Account</button>
+        <button className="btn" type="submit" disabled={password !== confirmPassword}>Create Account</button>
       </form>
       </div>
     </main>

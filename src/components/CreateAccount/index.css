@@ -43,6 +43,12 @@
 
 }
 
+.password-message {
+    height: 0.1rem;
+    font-size: 0.8rem;
+    margin-top: -0.05rem;
+}
+
 .btn{
     width: 10rem;
     height: 3rem;

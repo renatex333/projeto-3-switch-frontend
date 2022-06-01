@@ -11,14 +11,12 @@ export default function Login(props) {
       <form className="form-block">
         <label>
           <input type="text" placeholder="Username"/>
-          <p></p>
         </label>
         <label>
           <input type="password" placeholder="Password"/>
-          <p></p>
         </label>
           <button className="btn" type="submit">Login</button>
-          <h5>Don't have an account yet? <a className="create-account-href" href="/createaccount">Create an account now for free!</a></h5>
+          <h5 className="login-message">Don't have an account yet? <a className="create-account-href" href="/createaccount">Create an account now for free!</a></h5>
       </form>
       </div>
     </main>
