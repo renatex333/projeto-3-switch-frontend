@@ -1,10 +1,12 @@
 import React from "react";
 import { useState } from "react";
 import "./index.css";
+import axios from "axios";
 // import PropTypes from 'prop-types';
 
 export default function CreateAccount(props) {
 
+  const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
@@ -16,14 +18,28 @@ export default function CreateAccount(props) {
     setConfirmPassword(event.target.value);
   }
 
+  const accountCreate = (event) => {
+    console.log("oi")
+    event.preventDefault()
+    axios
+      .post(
+          "http://127.0.0.1:8000/api/signup",{"username":username, "password":password}
+          )
+      .then((res)=>{ console.log(res)
+        setUserName("")
+        setPassword("")
+        setConfirmPassword("")
+      }
+      )
+    }
 
   return (
     <main className="page">
       <div className="create-acc-block">
       <h1 className="create-acc-text">Create a brand new account</h1>
-      <form className="form-block">
+      <form className="form-block" onSubmit={accountCreate}>
         <label>
-          <input type="text" placeholder="Username"/>
+          <input type="text" placeholder="Username" onChange={e => setUserName(e.target.value)} value={username}/>
         </label>
         <label>
           <input 
@@ -58,5 +74,5 @@ export default function CreateAccount(props) {
       </form>
       </div>
     </main>
-  );
+  )
 }
