@@ -19,12 +19,13 @@ export default function CreateAccount(props) {
   }
 
   const accountCreate = (event) => {
+    console.log("oi")
     event.preventDefault()
     axios
       .post(
-          "https://localhost:8000/api/signup",{"username":username.toString, "password":password.toString}
+          "http://127.0.0.1:8000/api/signup",{"username":username, "password":password}
           )
-      .then((res)=>{ console.log(res.data)
+      .then((res)=>{ console.log(res)
         setUserName("")
         setPassword("")
         setConfirmPassword("")
@@ -36,9 +37,9 @@ export default function CreateAccount(props) {
     <main className="page">
       <div className="create-acc-block">
       <h1 className="create-acc-text">Create a brand new account</h1>
-      <form className="form-block">
+      <form className="form-block" onSubmit={accountCreate}>
         <label>
-          <input type="text" placeholder="Username" onChange={e => setUserName(e.target.value)}/>
+          <input type="text" placeholder="Username" onChange={e => setUserName(e.target.value)} value={username}/>
         </label>
         <label>
           <input 
@@ -69,7 +70,7 @@ export default function CreateAccount(props) {
             )
           )
         }
-        <button className="btn" type="submit" disabled={password !== confirmPassword} onSubmit={accountCreate}>Create Account</button>
+        <button className="btn" type="submit" disabled={password !== confirmPassword}>Create Account</button>
       </form>
       </div>
     </main>
