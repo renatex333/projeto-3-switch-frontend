@@ -29,18 +29,8 @@ function getToken() {
 
 
 function App() {
-  // const [token, setToken] = useState();
-
-  // if(!token) {
-  //   return <Login setToken={setToken} />
-  // }
-
-
   const token = getToken();
 
-  if(!token) {
-    return <Login setToken={setToken} />
-  }
 
   return (
     <div className="App">
@@ -48,12 +38,14 @@ function App() {
         <img className="switch-logo" src="/switch-logo.png" alt="Switch Logo" />
       </header>
       {/* Exemplo de uso das Routes https://www.geeksforgeeks.org/reactjs-router/#:~:text=React%20Router%20is%20a%20standard,how%20the%20React%20Router%20works. */}
-      <Sidebar pageWrapId={'page-wrap'} outerContainerId={'outer-container'} />
+      <Sidebar pageWrapId={'page-wrap'} outerContainerId={'outer-container'} token={token}/>
       <div className="main" id="page-wrap">
         <Router>
           <Routes>
             <Route exact path='/' element={<Homepage/>}></Route>
-            <Route exact path='/login' element={<Login/>}></Route>
+            {!token &&
+            <Route exact path='/login' element={<Login setToken={setToken}/>}></Route>
+            }
             <Route exact path='/credits' element={<Credits/>}></Route>
             <Route exact path='/createaccount' element={<CreateAccount/>}></Route>
           </Routes>
