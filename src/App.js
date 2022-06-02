@@ -3,7 +3,6 @@ import {
   Routes,
   Route
 } from 'react-router-dom';
-import React, { useState } from 'react';
 import Homepage from "./components/Homepage";
 import Login from "./components/Login";
 import Credits from "./components/Credits";
@@ -17,6 +16,18 @@ import './App.css';
 // Outras opções:
 // https://colorhunt.co/palette/ff5c58fe8f8ffcd2d1ffedd3
 
+
+function setToken(userToken) {
+  sessionStorage.setItem('token', JSON.stringify(userToken));
+}
+
+function getToken() {
+  const tokenString = sessionStorage.getItem('token');
+  const userToken = JSON.parse(tokenString);
+  return userToken?.token
+}
+
+
 function App() {
   // const [token, setToken] = useState();
 
@@ -25,6 +36,11 @@ function App() {
   // }
 
 
+  const token = getToken();
+
+  if(!token) {
+    return <Login setToken={setToken} />
+  }
 
   return (
     <div className="App">

@@ -24,7 +24,6 @@ export default function Homepage(props) {
               )
           .then((res)=>{ 
             setNews(res.data)
-            console.log(res.data)
   }
   )}
 
