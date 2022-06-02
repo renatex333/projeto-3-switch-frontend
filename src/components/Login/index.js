@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import "./index.css";
 
 async function loginUser(credentials) {
-  return fetch('http://localhost:8000/login', {
+  return fetch('http://localhost:8000/api/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -18,15 +18,16 @@ export default function Login({setToken}) {
   const [username, setUserName] = useState();
   const [password, setPassword] = useState();
 
-  const handleSubmit = async e => {
-    e.preventDefault();
+  const handleSubmit = async event => {
+    //event.preventDefault();
     const token = await loginUser({
       username,
       password
     });
     setToken(token);
+    setUserName("");
+    setPassword("");
   }
-
 
   return (
     <main className="page">

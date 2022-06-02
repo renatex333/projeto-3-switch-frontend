@@ -46,6 +46,9 @@ function App() {
             {!token &&
             <Route exact path='/login' element={<Login setToken={setToken}/>}></Route>
             }
+            {token &&
+            <Route exact path='/login' element={<Homepage/>}></Route>
+            }
             <Route exact path='/credits' element={<Credits/>}></Route>
             <Route exact path='/createaccount' element={<CreateAccount/>}></Route>
           </Routes>
