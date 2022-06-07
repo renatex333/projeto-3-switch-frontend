@@ -14,7 +14,7 @@ async function loginUser(credentials) {
  }
  
 
-export default function Login({setToken}) {
+export default function Login(props) {
   const [username, setUserName] = useState();
   const [password, setPassword] = useState();
 
@@ -24,7 +24,7 @@ export default function Login({setToken}) {
       username,
       password
     });
-    setToken(token);
+    props.setToken(token);
     setUserName("");
     setPassword("");
   }
