@@ -9,6 +9,7 @@ export default function CreateAccount(props) {
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [createdAccMessage, setCreatedAccMessage] = useState("");
 
   const modifiedPassword = (event) => {
     setPassword(event.target.value);
@@ -24,10 +25,11 @@ export default function CreateAccount(props) {
       .post(
           "http://127.0.0.1:8000/api/signup",{"username":username, "password":password}
           )
-      .then((res)=>{ //console.log(res)
-        setUserName("")
-        setPassword("")
-        setConfirmPassword("")
+      .then((res)=>{ 
+        setCreatedAccMessage(res.data.response);
+        setUserName("");
+        setPassword("");
+        setConfirmPassword("");
       }
       )
     }
@@ -64,10 +66,17 @@ export default function CreateAccount(props) {
             console.log()
           ) : (
             password !== confirmPassword ? (
-            <h5 className="password-message">Passwords don't match!</h5>
+            <h5 className="system-message">Passwords don't match!</h5>
             ) : (
-            <h5 className="password-message">Passwords match!</h5>
+            <h5 className="system-message">Passwords match!</h5>
             )
+          )
+        }
+        {
+          createdAccMessage === "" ? (
+            console.log()
+          ) : (
+            <h5 className="system-message">{createdAccMessage}</h5>
           )
         }
         <button className="btn" type="submit" disabled={password !== confirmPassword}>Create Account</button>
