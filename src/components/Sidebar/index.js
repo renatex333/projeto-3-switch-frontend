@@ -10,11 +10,10 @@ import "./index.css";
 // https://www.npmjs.com/package/react-burger-menu
 
 export default function Sidebar(props) {
-
   return (
     <Menu right>
       {props.token &&
-      <h2 className="menu-item">Welcome, Bienvenido</h2>
+      <h2 className="menu-item">Welcome</h2>
       }
       <a className="menu-item" href="/">
         Home
@@ -27,6 +26,11 @@ export default function Sidebar(props) {
       <a className="menu-item" href="/credits">
         Credits
       </a>
+      {props.token &&
+        <form onSubmit={props.setToken("")}>
+          <button className="logout">logout</button>
+        </form>
+      }
     </Menu>
   );
 }

@@ -79,3 +79,28 @@ Note: Beware of modifying this element as it can break the animations - you shou
 .bm-item:hover {
   color: #ffffff;
 }
+
+.logout{
+  width: 7rem;
+  height: 3rem;
+  border: none;
+  text-align: center;
+  border-radius: .3rem;
+  background-color: #FF2442;
+  box-shadow: 0  0.4rem rgb(150, 0, 0);
+  margin: 1rem;
+  color: #fff;
+  font-size: large;
+  font-weight: 600;
+  cursor: pointer;
+  }
+
+.logout:hover {
+  background-color: #a8182c  
+}
+
+.logout:active {
+  background-color: #FF2442;
+  box-shadow: 0 0.2rem rgb(150, 0, 0);
+  transform: translateY(4px);
+}

@@ -19,19 +19,19 @@ export default function CreateAccount(props) {
   }
 
   const accountCreate = (event) => {
-    console.log("oi")
     event.preventDefault()
     axios
       .post(
           "http://127.0.0.1:8000/api/signup",{"username":username, "password":password}
           )
-      .then((res)=>{ console.log(res)
+      .then((res)=>{ //console.log(res)
         setUserName("")
         setPassword("")
         setConfirmPassword("")
       }
       )
     }
+
 
   return (
     <main className="page">
@@ -71,6 +71,7 @@ export default function CreateAccount(props) {
           )
         }
         <button className="btn" type="submit" disabled={password !== confirmPassword}>Create Account</button>
+
       </form>
       </div>
     </main>
