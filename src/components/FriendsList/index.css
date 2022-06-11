@@ -31,7 +31,7 @@
 }
 
 .friend-name-input {
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     height: 2rem;
     width: 15rem;
 }
@@ -42,8 +42,15 @@
     cursor: pointer;
 }
 
-.plus-icon {
+.answer-request-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.generic-icon {
     width: 1.5rem;
+    height: 1.5rem;
 }
 
 .list-content {
@@ -63,6 +70,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 15rem;
+    height: 2rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 0.1rem 0.1rem rgba(0,0,0,0.19), 0 0.1rem 0.1rem rgba(0,0,0,0.23);
+}
+
+.friend-request-li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
     width: 15rem;
     height: 2rem;
     margin-bottom: 1rem;

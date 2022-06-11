@@ -1,9 +1,41 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import "./index.css";
+import axios from "axios";
 
 export default function FriendsList(props) {
   const [friendName, setFriendName] = useState("");
+  const [friendsList, setFriendsList] = useState([]);
+  const [friendRequests, setFriendRequests] = useState([]);
+  const [frMessage, setFRMessage] = useState("");
+
+  
+  const loadFriendsList = (event) => {
+    axios
+    .get("http://localhost:8000/api/user")
+    .then((res)=>{ 
+      setFriendsList(res.data.friends);
+      setFriendRequests(res.data.friend_requests);
+    }
+  )}
+
+  function acceptFriendRequest(requestId) {
+    let acceptLink = "http://localhost:8000/accept_friend_request/" + requestId;
+    axios
+    .get(acceptLink)
+    .then((res)=>{
+      console.log()
+    })
+  }
+
+  function denyFriendRequest(requestId) {
+    let acceptLink = "http://localhost:8000/deny_friend_request/" + requestId;
+    axios
+    .get(acceptLink)
+    .then((res)=>{
+      console.log()
+    })
+  }
 
   const modifiedName = (event) => {
     setFriendName(event.target.value);
@@ -11,12 +43,21 @@ export default function FriendsList(props) {
 
   function addFriend(event) {
     event.preventDefault();
-    let message = {"data": friendName};
+    let message = {"friendName": friendName};
+    let sendFRLink = "http://localhost:8000/send_friend_request";
     // Aqui faz request no servidor para adicionar amigo pelo nome
-    console.log(message);
+    axios
+    .post(sendFRLink, message)
+    .then((res)=>{
+      setFRMessage(res.data.response);
+    });
     // Depois de tudo (mas dentro do "then" da request) faz esse comando abaixo para limpar o formulário (Exemplo em Heoku-React-TW/components/Formulario/index.js)
     setFriendName("");
   }
+
+  useEffect(() => {
+    loadFriendsList();
+  },[]);
 
   return (
     <div className="friends">
@@ -27,19 +68,41 @@ export default function FriendsList(props) {
               className="friend-name-input" 
               type={"text"} 
               name="name-input" 
-              placeholder="Add Friend by ID" 
+              placeholder="Add Friend by Username" 
               onChange={modifiedName} 
               value={friendName}
             />
             <button className="add-friend-btn" type="submit">
-              <img className="plus-icon" src="/plus-solid.png" alt="Plus Icon" />
+              <img className="generic-icon" src="/plus-solid.png" alt="Plus Icon" />
             </button>
           </form>
+          {
+            frMessage === "" ? (
+              console.log()
+            ) : (
+              <h5 className="system-message">{frMessage}</h5>
+            )
+          }
         </div>
+        <h3>Friend Requests</h3>
         <ul className="list-content">
-            {props.dados.data.map((s) => (
-            <li key={s} className="friend-li">{s}</li>
-            ))}
+        {friendRequests.map((data) => (
+          <li key={data.friend_request_user} className="friend-request-li">
+            {data.friend_request_user}
+            <button className="answer-request-btn" onClick={() => acceptFriendRequest(data.friend_request_id)}>
+              <img className="generic-icon" src="/accept.png" alt="Accept Icon" />
+            </button>
+            <button className="answer-request-btn" onClick={() => denyFriendRequest(data.friend_request_id)}>
+              <img className="generic-icon" src="/deny.png" alt="Deny Icon" />
+            </button>
+          </li>
+        ))}
+        </ul>
+        <h3>Your Friends</h3>
+        <ul className="list-content">
+        {friendsList.map((s) => (
+          <li key={s} className="friend-li">{s}</li>
+        ))}
         </ul>
     </div>
   );
