@@ -4,6 +4,8 @@ import "./index.css";
 import axios from "axios";
 // import PropTypes from 'prop-types';
 
+const SERVER_URL = 'http://127.0.0.1:8000'
+
 export default function CreateAccount(props) {
 
   const [username, setUserName] = useState("");
@@ -23,7 +25,7 @@ export default function CreateAccount(props) {
     event.preventDefault()
     axios
       .post(
-          "http://127.0.0.1:8000/api/signup",{"username":username, "password":password}
+          SERVER_URL + "/api/signup",{"username":username, "password":password}
           )
       .then((res)=>{ 
         setCreatedAccMessage(res.data.response);

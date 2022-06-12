@@ -3,6 +3,9 @@ import { useEffect, useState } from "react";
 import "./index.css";
 import axios from "axios";
 
+
+const SERVER_URL = 'http://127.0.0.1:8000'
+
 export default function FriendsList(props) {
   const [friendName, setFriendName] = useState("");
   const [friendsList, setFriendsList] = useState([]);
@@ -12,7 +15,7 @@ export default function FriendsList(props) {
   
   const loadFriendsList = (event) => {
     axios
-    .get("http://localhost:8000/api/user")
+    .get(SERVER_URL+"/api/user")
     .then((res)=>{ 
       setFriendsList(res.data.friends);
       setFriendRequests(res.data.friend_requests);
@@ -20,7 +23,7 @@ export default function FriendsList(props) {
   )}
 
   function acceptFriendRequest(requestId) {
-    let acceptLink = "http://localhost:8000/accept_friend_request/" + requestId;
+    let acceptLink = SERVER_URL + "/accept_friend_request/" + requestId;
     axios
     .get(acceptLink)
     .then((res)=>{
@@ -29,7 +32,7 @@ export default function FriendsList(props) {
   }
 
   function denyFriendRequest(requestId) {
-    let acceptLink = "http://localhost:8000/deny_friend_request/" + requestId;
+    let acceptLink = SERVER_URL + "/deny_friend_request/" + requestId;
     axios
     .get(acceptLink)
     .then((res)=>{
@@ -44,7 +47,7 @@ export default function FriendsList(props) {
   function addFriend(event) {
     event.preventDefault();
     let message = {"friendName": friendName};
-    let sendFRLink = "http://localhost:8000/send_friend_request";
+    let sendFRLink = SERVER_URL + "/send_friend_request";
     // Aqui faz request no servidor para adicionar amigo pelo nome
     axios
     .post(sendFRLink, message)

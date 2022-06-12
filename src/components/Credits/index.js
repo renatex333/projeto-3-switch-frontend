@@ -25,10 +25,10 @@ export default function Credits() {
         </p>
         <p className="authors">
           Made by: <br />
+          Renato Falcão <br />
           Diogo Duarte <br />
           Jorás Custodio <br />
           Matheus Ribeiro <br />
-          Renato Falcão <br />
         </p>
     </div>
   );

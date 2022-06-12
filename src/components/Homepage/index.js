@@ -5,6 +5,9 @@ import "./index.css";
 import {useState, useEffect} from "react";
 import axios from "axios";
 
+
+const SERVER_URL = 'http://127.0.0.1:8000'
+
 export default function Homepage(props) {
 
   const [news, setNews] = useState([]);
@@ -12,15 +15,10 @@ export default function Homepage(props) {
   const loadNews = (event) => {
     axios
     .get(
-        "http://localhost:8000/api/news",
+        SERVER_URL + "/api/news",
 
         axios.defaults.xsrfCookieName = 'csrftoken',
         axios.defaults.xsrfHeaderName = 'X-CSRFToken',
-        {header : {
-          "Origin" : "http://localhost:3000",
-          "Access-Control-Allow-Origin" : "*"
-        }
-      }
         )
     .then((res)=>{ 
       setNews(res.data)

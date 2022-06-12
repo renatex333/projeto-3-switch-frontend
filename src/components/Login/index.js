@@ -1,9 +1,13 @@
 import React, {useState} from "react";
 import PropTypes from 'prop-types';
 import "./index.css";
+import {useNavigate} from 'react-router-dom';
+
+
+const SERVER_URL = 'http://127.0.0.1:8000'
 
 async function loginUser(credentials) {
-  return fetch('http://localhost:8000/api/login', {
+  return fetch(SERVER_URL+'/api/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -11,22 +15,25 @@ async function loginUser(credentials) {
     body: JSON.stringify(credentials)
   })
     .then(data => data.json())
- }
- 
+ } 
 
 export default function Login(props) {
   const [username, setUserName] = useState();
   const [password, setPassword] = useState();
+  const nav = useNavigate();
 
   const handleSubmit = async event => {
-    //event.preventDefault();
+    event.preventDefault();
     const token = await loginUser({
       username,
       password
     });
     props.setToken(token);
+    props.setName(username);
+    console.log(username)
     setUserName("");
     setPassword("");
+    nav("/");
   }
 
   return (
