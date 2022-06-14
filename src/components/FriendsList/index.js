@@ -23,7 +23,7 @@ export default function FriendsList(props) {
       setFriendRequests(res.data.friend_requests);
     }
   )};
-  
+
 
   function acceptFriendRequest(requestId) {
     let acceptLink = SERVER_URL + "/accept_friend_request/" + requestId;
@@ -66,7 +66,8 @@ export default function FriendsList(props) {
 
   useEffect(() => {
     loadFriendsList();
-  },[]);
+  });
+
 
   return (
     <div className="friends">
@@ -108,11 +109,11 @@ export default function FriendsList(props) {
         ))}
         </ul>
         <h3>Your Friends</h3>
-        <ul className="list-content">
+        <div className="list-content">
         {friendsList.map((s) => (
-          <li key={s} className="friend-li">{s}</li>
+          <div key={s} className="friend-li">{s}</div>
         ))}
-        </ul>
+        </div>
     </div>
   );
 }
