@@ -4,7 +4,7 @@ import "./index.css";
 import axios from "axios";
 
 
-const SERVER_URL = 'http://127.0.0.1:8000'
+const SERVER_URL = 'http://salty-fortress-53225.herokuapp.com'
 
 export default function FriendsList(props) {
   const [friendName, setFriendName] = useState("");
