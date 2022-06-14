@@ -5,7 +5,7 @@ import axios from "axios";
 // import PropTypes from 'prop-types';
 
 // const SERVER_URL = 'http://127.0.0.1:8000'
-const SERVER_URL = 'https://salty-fortress-53225.herokuapp.com/'
+const SERVER_URL = 'https://salty-fortress-53225.herokuapp.com'
 
 export default function CreateAccount(props) {
 
