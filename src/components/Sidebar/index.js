@@ -26,11 +26,11 @@ export default function Sidebar(props) {
       <a className="menu-item" href="/credits">
         Credits
       </a>
-      {props.token &&
-        <form onSubmit={props.setToken("")}>
+      {/* {props.token &&
+        <form onSubmit={props.logout()}>
           <button className="logout">logout</button>
         </form>
-      }
+      } */}
     </Menu>
   );
 }

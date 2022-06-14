@@ -28,10 +28,14 @@ function getToken() {
   return userToken?.token
 }
 
+function logout() {
+  sessionStorage.clear()
+}
 
 function App() {
   const token = getToken();
   const [name,setName] = useState("");
+
 
   return (
     <div className="App">
@@ -39,7 +43,7 @@ function App() {
         <img className="switch-logo" src="/switch-logo.png" alt="Switch Logo" />
       </header>
       {/* Exemplo de uso das Routes https://www.geeksforgeeks.org/reactjs-router/#:~:text=React%20Router%20is%20a%20standard,how%20the%20React%20Router%20works. */}
-      <Sidebar pageWrapId={'page-wrap'} outerContainerId={'outer-container'} token={token} setToken={setToken} name={name}/>
+      <Sidebar pageWrapId={'page-wrap'} outerContainerId={'outer-container'} token={token} logout={logout} name={name}/>
       <div className="main" id="page-wrap">
         <Router>
           <Routes>
