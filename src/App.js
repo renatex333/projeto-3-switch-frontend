@@ -33,7 +33,6 @@ function App() {
   const token = getToken();
   const [name,setName] = useState("");
 
-
   return (
     <div className="App">
       <header className="App-header" id="outer-container">
@@ -44,12 +43,12 @@ function App() {
       <div className="main" id="page-wrap">
         <Router>
           <Routes>
-            <Route exact path='/' element={<Homepage/>}></Route>
+            <Route exact path='/' element={<Homepage token={token}></Homepage>}></Route>
             {!token &&
             <Route exact path='/login' element={<Login setToken={setToken} setName={setName}/>}></Route>
             }
             {token &&
-            <Route exact path='/login' element={<Homepage/>}></Route>
+            <Route exact path='/login' element={<Homepage token={token}></Homepage>}></Route>
             }
             <Route exact path='/credits' element={<Credits/>}></Route>
             <Route exact path='/createaccount' element={<CreateAccount/>}></Route>

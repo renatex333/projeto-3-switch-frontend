@@ -9,7 +9,7 @@ import axios from "axios";
 const SERVER_URL = 'http://127.0.0.1:8000'
 
 export default function Homepage(props) {
-
+  
   const [news, setNews] = useState([]);
 
   const loadNews = (event) => {
@@ -32,7 +32,7 @@ export default function Homepage(props) {
   return (
     <div className="homepage">
       <News key={0} dados={news}></News>
-      <FriendsList></FriendsList>      
+      <FriendsList token={props.token}></FriendsList>      
     </div>
   );
 }

@@ -30,7 +30,6 @@ export default function Login(props) {
     });
     props.setToken(token);
     props.setName(username);
-    console.log(username)
     setUserName("");
     setPassword("");
     nav("/");

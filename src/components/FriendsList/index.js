@@ -11,32 +11,37 @@ export default function FriendsList(props) {
   const [friendsList, setFriendsList] = useState([]);
   const [friendRequests, setFriendRequests] = useState([]);
   const [frMessage, setFRMessage] = useState("");
+  const token = props.token;
 
-  
   const loadFriendsList = (event) => {
+    let friendsLink = SERVER_URL + "/api/user";
+    let authorization = {headers:{"Authorization": `Token ${token}`}};
     axios
-    .get(SERVER_URL+"/api/user")
+    .get(friendsLink, authorization)
     .then((res)=>{ 
       setFriendsList(res.data.friends);
       setFriendRequests(res.data.friend_requests);
     }
-  )}
+  )};
+  
 
   function acceptFriendRequest(requestId) {
     let acceptLink = SERVER_URL + "/accept_friend_request/" + requestId;
+    let authorization = {headers:{"Authorization": `Token ${token}`}};
     axios
-    .get(acceptLink)
+    .get(acceptLink, authorization)
     .then((res)=>{
-      console.log()
+      loadFriendsList();
     })
   }
 
   function denyFriendRequest(requestId) {
-    let acceptLink = SERVER_URL + "/deny_friend_request/" + requestId;
+    let denyLink = SERVER_URL + "/deny_friend_request/" + requestId;
+    let authorization = {headers:{"Authorization": `Token ${token}`}};
     axios
-    .get(acceptLink)
+    .get(denyLink, authorization)
     .then((res)=>{
-      console.log()
+      loadFriendsList();
     })
   }
 
@@ -48,9 +53,10 @@ export default function FriendsList(props) {
     event.preventDefault();
     let message = {"friendName": friendName};
     let sendFRLink = SERVER_URL + "/send_friend_request";
+    let authorization = {headers:{"Authorization": `Token ${token}`}};
     // Aqui faz request no servidor para adicionar amigo pelo nome
     axios
-    .post(sendFRLink, message)
+    .post(sendFRLink, message, authorization)
     .then((res)=>{
       setFRMessage(res.data.response);
     });
