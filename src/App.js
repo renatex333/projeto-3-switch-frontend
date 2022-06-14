@@ -9,7 +9,7 @@ import Credits from "./components/Credits";
 import Sidebar from './components/Sidebar';
 import CreateAccount from './components/CreateAccount';
 import './App.css';
-import React, {useState} from 'react';
+// import React, {useState} from 'react';
 
 
 // Inicialmente, usando a seguinte color palette:
@@ -28,13 +28,8 @@ function getToken() {
   return userToken?.token
 }
 
-function logout() {
-  sessionStorage.clear()
-}
-
 function App() {
   const token = getToken();
-  const [name,setName] = useState("");
 
 
   return (
@@ -43,13 +38,13 @@ function App() {
         <img className="switch-logo" src="/switch-logo.png" alt="Switch Logo" />
       </header>
       {/* Exemplo de uso das Routes https://www.geeksforgeeks.org/reactjs-router/#:~:text=React%20Router%20is%20a%20standard,how%20the%20React%20Router%20works. */}
-      <Sidebar pageWrapId={'page-wrap'} outerContainerId={'outer-container'} token={token} logout={logout} name={name}/>
+      <Sidebar pageWrapId={'page-wrap'} outerContainerId={'outer-container'} token={token}/>
       <div className="main" id="page-wrap">
         <Router>
           <Routes>
             <Route exact path='/' element={<Homepage token={token}></Homepage>}></Route>
             {!token &&
-            <Route exact path='/login' element={<Login setToken={setToken} setName={setName}/>}></Route>
+            <Route exact path='/login' element={<Login setToken={setToken} token={token}/>}></Route>
             }
             {token &&
             <Route exact path='/login' element={<Homepage token={token}></Homepage>}></Route>

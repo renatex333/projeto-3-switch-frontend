@@ -29,10 +29,11 @@ export default function Login(props) {
       password
     });
     props.setToken(token);
-    props.setName(username);
+    sessionStorage.setItem('name', username);
     setUserName("");
     setPassword("");
     nav("/");
+    window.location.reload(false)
   }
 
   return (
