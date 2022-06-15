@@ -4,7 +4,7 @@ import "./index.css";
 import {useNavigate} from 'react-router-dom';
 
 
-const SERVER_URL = 'http://salty-fortress-53225.herokuapp.com'
+const SERVER_URL = 'https://aqueous-sea-40270.herokuapp.com'
 
 async function loginUser(credentials) {
   return fetch(SERVER_URL+'/api/login', {
