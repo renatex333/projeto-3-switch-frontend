@@ -4,7 +4,7 @@ import "./index.css";
 import axios from "axios";
 // import PropTypes from 'prop-types';
 
-const SERVER_URL = 'https://aqueous-sea-40270.herokuapp.com'
+const SERVER_URL = 'https://peaceful-brook-18641.herokuapp.com'
 
 export default function CreateAccount(props) {
 
